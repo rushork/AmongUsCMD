@@ -248,6 +248,8 @@ class Task {
 	Boolean confirmHuman() {
 		/*String name = JOptionPane.showInputDialog("To verify you're a human, click your colour.", QUESTION_MESSAGE);*/
 		
+		Scanner in = new Scanner(System.in);
+		
 		Object[] possibleValues1 = { "Red", "Blue", "Green" };
 		Object[] possibleValues2 = { "Green", "Blue", "Red" };
 		Object[] possibleValues3 = { "Blue", "Red", "Green" };
@@ -257,6 +259,8 @@ class Task {
 		Random random = new Random();
 		Integer randomPossible = (random.nextInt(2)+1);
 		
+		Integer redNum;
+		
 		if (randomPossible == 1) {
 			possibleValues = possibleValues1;
 		} else if (randomPossible == 2) {
@@ -265,13 +269,27 @@ class Task {
 			possibleValues = possibleValues3;
 		}
 
-		Object selectedValue = JOptionPane.showInputDialog(null, "Choose Red to verify you're a human.", "Input", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+		for (int x = 0; x < 3; x++) {
+			System.println(x+1);
+			System.print(" " + possibleValues[x]);
+			
+			if (possibleValues[x] = "Red") {
+				redNum = x+1;
+			}
+		}
+
+		System.out.println("");
+		System.out.println("Select the number with option Red to verify you're a human.");
+		Integer selectedValue = in.nextInt();
 		
-		if (selectedValue.equals("Red")) {
-			JOptionPane.showMessageDialog(null, "Human Verfied", "Task Successful.", 1);
+		// Object selectedValue = JOptionPane.showInputDialog(null, "Choose Red to verify you're a human.", "Input", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+		// value in if selectedValue.equals("Red")
+		
+		if (selectedValue == redNum) {
+			// JOptionPane.showMessageDialog(null, "Human Verfied", "Task Successful.", 1);
 			return true;
 		} else {
-			JOptionPane.showMessageDialog(null, "Potential Robot", "Task Not Successful.", 0);
+			// JOptionPane.showMessageDialog(null, "Potential Robot", "Task Not Successful.", 0);
 			return false;
 		}		
 	}
@@ -280,18 +298,21 @@ class Task {
 		
 		Random random = new Random();
 		Integer randomPassInt = (random.nextInt(999)+1000);
+		Scanner in = new Scanner(System.in);
 		
-		String randomPass = Integer.toString(randomPassInt);
+		String randomPass = Integer.toString(randomPassInt);		
 		
-		JOptionPane.showMessageDialog(null, "Today's password is " + randomPass, "Today's password...",  1);
-		
-		String inputPass = JOptionPane.showInputDialog("What is today's password?");
+		// JOptionPane.showMessageDialog(null, "Today's password is " + randomPass, "Today's password...",  1);			
+		System.out.println("What is today's password?");
+		String inputPass = in.nextLine(); //JOptionPane.showInputDialog("What is today's password?");
 			
-		if (inputPass.equals(randomPass)) {
-			JOptionPane.showMessageDialog(null, "Correct Password", "Task Successful.", 1);
+		if (inputPass.equals(randomPass)) {			
+			// JOptionPane.showMessageDialog(null, "Correct Password", "Task Successful.", 1);
+			System.out.println("Correct Password, Task Successful.");
 			return true;
 		} else {
-			JOptionPane.showMessageDialog(null, "Incorrect Password", "Task Not Successful.", 0);
+			// JOptionPane.showMessageDialog(null, "Incorrect Password", "Task Not Successful.", 0);
+			System.out.println("Incorrect Password, Task Not Successful.");
 			return false;
 		}		
 		
