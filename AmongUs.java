@@ -116,6 +116,7 @@ public class AmongUs {
 		System.out.println("");
 		String name = in.nextLine();
 		breaker();
+		in.close();
 		
 		Random random = new Random();	
 		Integer dontBelieve = (random.nextInt(9));
@@ -218,6 +219,7 @@ public class AmongUs {
 		
 		Scanner in = new Scanner(System.in);
 		in.nextLine();
+		in.close();
 	}
 	
 	static void breaker() {
@@ -270,8 +272,8 @@ class Task {
 		}
 
 		for (int x = 0; x < 3; x++) {
-			System.println(x+1);
-			System.print(" " + possibleValues[x]);
+			System.out.println(x+1);
+			System.out.print(" " + possibleValues[x]);
 			
 			if (possibleValues[x] = "Red") {
 				redNum = x+1;
@@ -305,7 +307,8 @@ class Task {
 		// JOptionPane.showMessageDialog(null, "Today's password is " + randomPass, "Today's password...",  1);			
 		System.out.println("What is today's password?");
 		String inputPass = in.nextLine(); //JOptionPane.showInputDialog("What is today's password?");
-			
+		in.close();	
+
 		if (inputPass.equals(randomPass)) {			
 			// JOptionPane.showMessageDialog(null, "Correct Password", "Task Successful.", 1);
 			System.out.println("Correct Password, Task Successful.");
@@ -453,7 +456,8 @@ class SetupGame {
 		System.out.println("How many players would you like in your game?");
 		Scanner in = new Scanner(System.in);
 		numberOfPlayers = in.nextInt();
-		
+		in.close();
+
 		if (numberOfPlayers<4) {
 			numberOfPlayers = 4;
 		} else if (numberOfPlayers>10) {
