@@ -261,7 +261,7 @@ class Task {
 		Random random = new Random();
 		Integer randomPossible = (random.nextInt(2)+1);
 		
-		Integer redNum;
+		Integer redNum = null;
 		
 		if (randomPossible == 1) {
 			possibleValues = possibleValues1;
@@ -275,7 +275,7 @@ class Task {
 			System.out.println(x+1);
 			System.out.print(" " + possibleValues[x]);
 			
-			if (possibleValues[x] = "Red") {
+			if (possibleValues[x] == "Red") {
 				redNum = x+1;
 			}
 		}
